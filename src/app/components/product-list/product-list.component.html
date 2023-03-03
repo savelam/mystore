@@ -1,0 +1,25 @@
+<div class="product-index" *ngIf="products.length > 0; else elseBlock">
+  <app-product-item
+    class="product-container"
+    *ngFor="let product of products"
+    [product]="product"
+  ></app-product-item>
+
+  <a routerLink="/" class="back-link center" style="text-decoration: none">
+    <button class="btn btn-dark">
+      <i class="bi bi-backspace"></i> Back to Homepage
+    </button></a
+  >
+</div>
+<ng-template #elseBlock>
+  <div>
+    <p class="center">
+      Sorry. No products available at the moment. Try again later
+    </p>
+    <a routerLink="/" class="center" style="text-decoration: none">
+      <button class="btn btn-dark">
+        <i class="bi bi-backspace"></i> Back to Homepage
+      </button>
+    </a>
+  </div>
+</ng-template>

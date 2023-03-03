@@ -1,0 +1,22 @@
+<div class="product-container">
+  <a routerLink="/products/{{ product.id }}"
+    ><img
+      src="{{ product.url }}"
+      alt="{{ product.name }}"
+      class="product-image"
+  /></a>
+  <p>{{ product.name }}</p>
+  <p>GH&#8373;{{ product.price }}</p>
+  <form #form="ngForm" (ngSubmit)="addToCart()">
+    <input
+      type="number"
+      name="quantity"
+      id=""
+      class="select-input form-control"
+      min="1"
+      [defaultValue]="1"
+      [(ngModel)]="quantity"
+    />
+    <button class="btn btn-primary">Add to cart</button>
+  </form>
+</div>

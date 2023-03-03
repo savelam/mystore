@@ -1,0 +1,13 @@
+.block {
+  display: block;
+}
+
+.error {
+  color: red;
+}
+
+/* STYLES PROVIDED BY UDACITY */
+
+.form-margin {
+  margin-bottom: 12px;
+}

@@ -1,0 +1,33 @@
+<div class="cart-container" *ngIf="cartItems.length > 0; else elseBlock">
+  <div>
+    <app-cart-item
+      *ngFor="let item of cartItems"
+      [item]="item"
+      (updatedItemPrice)="updateItemPrice($event)"
+      (removeCartItem)="removeCartItem($event)"
+    ></app-cart-item>
+  </div>
+
+  <app-checkout-form
+    class="cart-panel"
+    (emmitConfirmOrder)="confirmOrder($event)"
+  ></app-checkout-form>
+
+  <div class="cost">
+    <h3>Total Cost</h3>
+    <p>GH&#8373; {{ totalCost.toFixed(2) }}</p>
+  </div>
+</div>
+<ng-template #elseBlock>
+  <div class="text-center mt-5">
+    <img src="../../assets/images/cart-63-128.png" class="img-fluid rounded" />
+  </div>
+  <div class="empty-cart-message">
+    <p>Cart is empty. Kindly add products and come back.</p>
+  </div>
+  <a routerLink="/products" class="empty-cart-message">
+    <button class="btn btn-primary">
+      <i class="bi bi-backspace"></i> Back to product list
+    </button>
+  </a>
+</ng-template>

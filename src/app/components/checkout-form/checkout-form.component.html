@@ -1,0 +1,61 @@
+<form #form="ngForm" (ngSubmit)="confirmOrder()" class="cart-panel">
+  <label for="name" class="block">Full name</label>
+  <input
+    required
+    placeholder="Enter your full name here"
+    type="text"
+    class="block form-margin form-control"
+    id="name"
+    name="name"
+    maxlength="50"
+    [(ngModel)]="name"
+    [pattern]="namePattern"
+    #userName="ngModel"
+  />
+  <div class="error" *ngIf="userName.invalid && userName.dirty">
+    <p>At least one character</p>
+    <p>Only hyphens, strings and spaces</p>
+  </div>
+
+  <label for="address" class="block">Address</label>
+  <textarea
+    required
+    placeholder="Enter your address here"
+    class="block form-margin form-control"
+    id="address"
+    name="address"
+    maxlength="150"
+    [(ngModel)]="address"
+    [pattern]="addressPattern"
+    #userAddress="ngModel"
+  ></textarea>
+  <div *ngIf="userAddress.invalid && userAddress.dirty" class="error">
+    <p>At least one character</p>
+    <p>Only hyphens, space characters, numbers and underscores</p>
+  </div>
+
+  <label for="creditcard" class="block">Credit card number</label>
+  <input
+    required
+    type="text"
+    class="block form-control"
+    id="creditcard"
+    maxlength="16"
+    name="creditCardNumber"
+    [(ngModel)]="creditCardNumber"
+    [pattern]="creditCardPattern"
+    #creditCardNum="ngModel"
+  />
+  <div *ngIf="creditCardNum.invalid && creditCardNum.dirty" class="error">
+    <p>only 16 digit numbers are accepted.</p>
+  </div>
+  <span class="form-margin block">
+    Your credit card information will never be shared with anyone.
+  </span>
+  <input
+    type="submit"
+    value="Submit"
+    [disabled]="form.invalid"
+    class="btn btn-primary"
+  />
+</form>

@@ -1,0 +1,13 @@
+<div class="confirmation-container">
+  <div class="confirmation-items">
+    <h2 class="success alert alert-success">Order placed successfully!</h2>
+    <p>Dear {{ name | titlecase }}, thank your for your patronage!</p>
+    <p>Order comfirmed for an amount of GHS {{ price }}</p>
+    <p>Expect your order shipped to you within three working days maximum.</p>
+    <a routerLink="/products"
+      ><button class="btn btn-primary">
+        <i class="bi bi-backspace"></i> Back to product list
+      </button></a
+    >
+  </div>
+</div>
